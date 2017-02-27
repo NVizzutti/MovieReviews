@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -25,9 +26,15 @@ namespace MovieReviews.Models
         {
         }
 
+        public object Reviews { get; internal set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Review> Review { get; set; }
+        public IEnumerable ApplicationUsers { get; internal set; }
     }
 }

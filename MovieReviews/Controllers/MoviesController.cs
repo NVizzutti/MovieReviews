@@ -32,7 +32,7 @@ namespace MovieReviews.Controllers
             {
                 return HttpNotFound();
             }
-            var reviews = db.Reviews.Where(c => c.MovieId == id);
+            var reviews = db.Review.Where(c => c.MovieId == id);
             ViewBag.Reviews = reviews;
             return View(movie);
         }

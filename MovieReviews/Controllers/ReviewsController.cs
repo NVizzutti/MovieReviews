@@ -18,7 +18,7 @@ namespace MovieReviews.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
-            var reviews = db.Reviews.Include(r => r.User);
+            var reviews = db.Review.Include(r => r.User);
             return View(reviews.ToList());
         }
 
@@ -29,7 +29,7 @@ namespace MovieReviews.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = db.Review.Find(id);
             if (review == null)
             {
                 return HttpNotFound();
@@ -54,7 +54,7 @@ namespace MovieReviews.Controllers
             review.ApplicationUserId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
-                db.Reviews.Add(review);
+                db.Review.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,7 +70,7 @@ namespace MovieReviews.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = db.Review.Find(id);
             if (review == null)
             {
                 return HttpNotFound();
@@ -92,7 +92,7 @@ namespace MovieReviews.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username", review.ApplicationUserId);
+            ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", review.ApplicationUserId);
             return View(review);
         }
 
@@ -103,7 +103,7 @@ namespace MovieReviews.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = db.Review.Find(id);
             if (review == null)
             {
                 return HttpNotFound();
@@ -116,8 +116,8 @@ namespace MovieReviews.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Review review = db.Reviews.Find(id);
-            db.Reviews.Remove(review);
+            Review review = db.Review.Find(id);
+            db.Review.Remove(review);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
