@@ -14,7 +14,7 @@ namespace MovieReviews.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Movies
+
         public ActionResult Index(string queryString)
         {
             if (!String.IsNullOrEmpty(queryString))
@@ -25,7 +25,6 @@ namespace MovieReviews.Controllers
             return View(db.Movies.ToList());
         }
 
-        // GET: Movies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -104,7 +103,6 @@ namespace MovieReviews.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

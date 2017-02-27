@@ -3,9 +3,9 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1></h1>
+    <p class="lead">Some of great movies don't get the attention they deserve. Our community shares the lesser-known film gems with each other.</p>
+    <p><a href="/movies/all" class="btn btn-primary btn-lg">See The List</a></p>
     @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
     {
         @Html.TextBox("queryString", null, new { placeholder = "Search By Title, Director, or Year", @class = "input-lg" })

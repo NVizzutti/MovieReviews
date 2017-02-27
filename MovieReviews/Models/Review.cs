@@ -16,7 +16,8 @@ namespace MovieReviews.Models
         [Required]
         [MinLength(4, ErrorMessage = "Must have a valid title")]
         public string Title { get; set; }
-        [MinLength(100, ErrorMessage = "Reviews must be at least 100 characters")]
+        [DataType(DataType.MultilineText)]
+        [MinLength(60, ErrorMessage = "Reviews must be at least 60 characters")]
         public string Body { get; set; }
         public Movie Movie { get; set; }
         public int MovieId { get; set; }

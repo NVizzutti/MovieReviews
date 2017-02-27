@@ -33,7 +33,7 @@ namespace MovieReviews.Controllers
         
         public ActionResult All()
         {
-            return View(db.Movies.ToList());
+            return View(db.Review.ToList());
         } 
 
         public ActionResult Details(int? id)
@@ -82,13 +82,10 @@ namespace MovieReviews.Controllers
             {
                 return HttpNotFound();
             }
-           // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username", review.ApplicationUserId);
             return View(review);
         }
 
-        // POST: Reviews/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ApplicationUserId,Title,Body")] Review review)
@@ -103,7 +100,6 @@ namespace MovieReviews.Controllers
             return View(review);
         }
 
-        // GET: Reviews/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,7 +114,6 @@ namespace MovieReviews.Controllers
             return View(review);
         }
 
-        // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
