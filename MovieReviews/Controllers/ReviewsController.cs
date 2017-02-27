@@ -33,7 +33,7 @@ namespace MovieReviews.Controllers
         
         public ActionResult All()
         {
-            return View(db.Movies.ToList())
+            return View(db.Movies.ToList());
         } 
 
         public ActionResult Details(int? id)
