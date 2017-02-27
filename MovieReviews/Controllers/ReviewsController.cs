@@ -40,6 +40,8 @@ namespace MovieReviews.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
+            var movies = db.Movies;
+            ViewBag.Movies = new SelectList(movies, "Title", "Director");
            // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username");
             return View();
         }
