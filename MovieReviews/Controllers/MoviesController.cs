@@ -15,8 +15,13 @@ namespace MovieReviews.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(string queryString)
         {
+            if (queryString != null)
+            {
+                var films = from m in db.Movies where m.Title.Contains(queryString) || m.Director.Contains(queryString) select m;
+                return View(films.ToList());
+            }
             return View(db.Movies.ToList());
         }
 

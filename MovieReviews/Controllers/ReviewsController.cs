@@ -15,14 +15,27 @@ namespace MovieReviews.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Reviews
         public ActionResult Index()
         {
-            var reviews = db.Review.Include(r => r.Movie);
-            return View(reviews.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentId = User.Identity.GetUserId();
+                var userReviews = from r in db.Review where r.ApplicationUserId == currentId select r;
+                var withMovie = userReviews.Include(r => r.Movie);
+                return View(withMovie.ToList());
+            } else
+            {
+                var reviews = from r in db.Review where r.ApplicationUserId == null select r;
+                var withMovie = reviews.Include(r => r.Movie);
+                return View(reviews.ToList());
+            }
         }
+        
+        public ActionResult All()
+        {
+            return View(db.Movies.ToList())
+        } 
 
-        // GET: Reviews/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,17 +50,13 @@ namespace MovieReviews.Controllers
             return View(review);
         }
 
-        // GET: Reviews/Create
+
         public ActionResult Create()
         {
             ViewBag.Movies = new SelectList(db.Movies, "Id", "Title");
-           // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username");
             return View();
         }
 
-        // POST: Reviews/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ApplicationUserId,Title,Body,MovieId")] Review review)
@@ -59,12 +68,9 @@ namespace MovieReviews.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            //ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username");
             return View(review);
         }
 
-        // GET: Reviews/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)

@@ -54,8 +54,8 @@ namespace MovieReviews
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
