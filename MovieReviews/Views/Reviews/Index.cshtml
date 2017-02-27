@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Body)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Movie)
+            @Html.DisplayNameFor(model => model.Movie.Title)
         </th>
     </tr>
 
@@ -37,7 +37,7 @@
             @Html.DisplayFor(modelItem => item.Body)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Movie)
+            @Html.DisplayFor(modelItem => item.Movie.Title)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

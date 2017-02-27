@@ -18,7 +18,7 @@ namespace MovieReviews.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
-            var reviews = db.Review.Include(r => r.User);
+            var reviews = db.Review.Include(r => r.Movie);
             return View(reviews.ToList());
         }
 
@@ -40,8 +40,7 @@ namespace MovieReviews.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
-            var movies = db.Movies;
-            ViewBag.Movies = new SelectList(movies, "Title", "Director");
+            ViewBag.Movies = new SelectList(db.Movies, "Id", "Title");
            // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Username");
             return View();
         }
@@ -51,7 +50,7 @@ namespace MovieReviews.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ApplicationUserId,Title,Body")] Review review)
+        public ActionResult Create([Bind(Include = "Id,ApplicationUserId,Title,Body,MovieId")] Review review)
         {
             review.ApplicationUserId = User.Identity.GetUserId();
             if (ModelState.IsValid)
