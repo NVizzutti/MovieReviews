@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieReviews.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MovieReviews.Controllers
 {
@@ -91,6 +92,10 @@ namespace MovieReviews.Controllers
 
         public ActionResult Delete(int? id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/movies");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

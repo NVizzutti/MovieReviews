@@ -111,11 +111,20 @@ namespace MovieReviews.Controllers
 
         public ActionResult Delete(int? id)
         {
+            var currentId = User.Identity.GetUserId();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Review review = db.Review.Find(id);
+            if (review == null)
+            {
+                Response.Redirect("/reviews");
+            }
+            if (review.ApplicationUserId != currentId && review.ApplicationUserId != null)
+            {
+                Response.Redirect("/reviews");
+            }
             if (review == null)
             {
                 return HttpNotFound();

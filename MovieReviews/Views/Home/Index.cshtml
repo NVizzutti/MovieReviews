@@ -3,13 +3,14 @@
 }
 
 <div class="jumbotron">
-    <h1>Best Films You've Never Seen</h1>
+    <h1 class="tagline">Best Films You've Never Seen</h1>
+    <img src="~/Content/film.jpeg" class="img-responsive"/>
     <p class="lead">Some great movies don't get the attention they deserve. We find the best movies you may not have hear of. 
     Our community shares these lesser-known film gems with each other, and leaves reviews for you to decide for yourself.</p>
-    <p><a href="/movies/all" class="btn btn-primary">See The List</a></p>
+    <p><a href="/movies/all" class="btn btn-primary see-list">See The List</a></p>
     @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
     {
         @Html.TextBox("queryString", null, new { placeholder = "Title, Director, or Year", @class = "input-lg" })
-        <br /><button type="submit" class="btn btn-default">Search</button>
+        <button type="submit" class="btn btn-default">Search</button>
     }
 </div>
