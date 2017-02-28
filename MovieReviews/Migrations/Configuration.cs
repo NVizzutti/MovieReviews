@@ -13,7 +13,7 @@ namespace MovieReviews.Migrations
             AutomaticMigrationDataLossAllowed = true;
             ContextKey = "MovieReviews.Models.ApplicationDbContext";
         }
-
+         
         protected override void Seed(MovieReviews.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
