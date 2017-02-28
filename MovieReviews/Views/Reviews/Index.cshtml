@@ -5,10 +5,6 @@
 }
 
 <h2>My Reviews</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -28,7 +24,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @if (item.User == null)
+            {
+                <p>Anonymous</p>
+            } else
+            {
             @Html.DisplayFor(modelItem => item.User.UserName)
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)

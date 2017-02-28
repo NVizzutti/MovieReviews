@@ -54,7 +54,10 @@ namespace MovieReviews.Controllers
             var reviews = from r in db.Review where r.Id == id select r;
             var withMovie = reviews.Include(r => r.Movie).First();
             ViewBag.Title = withMovie.Title;
-            ViewBag.Author = withMovie.User.UserName;
+            if (withMovie.User != null)
+            {
+                ViewBag.Author = withMovie.User.UserName;
+            }
             ViewBag.Movie = withMovie.Movie.Title;
             if (withMovie == null)
             {

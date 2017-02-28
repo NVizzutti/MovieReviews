@@ -28,16 +28,23 @@
             @Html.DisplayFor(modelItem => item.Movie.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.UserName)
+            @if (item.User == null)
+            {
+                <p>Anonymous</p>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
+        <td class="breakword">
             @Html.DisplayFor(modelItem => item.Body)
         </td>
         <td>
-            @Html.ActionLink("Review Page", "Details", new { id=item.Id })
+            @Html.ActionLink("Read Full", "Details", new { id=item.Id })
         </td>
     </tr>
 }
