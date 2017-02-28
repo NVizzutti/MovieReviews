@@ -3,15 +3,11 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -33,4 +29,25 @@ form > button.btn.btn-default {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+th {
+    cursor: pointer;
+}
+
+th:hover {
+    color: #406892;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 12px;
+}
+
+.navbar-brand {
+    font-size: 2em;
+    font-family: Federo;
 }
