@@ -33,12 +33,6 @@ namespace MovieReviews.Models
             return new ApplicationDbContext();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
-            base.OnModelCreating(modelBuilder);
-        }
-
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Review> Review { get; set; }
         public IEnumerable ApplicationUsers { get; internal set; }

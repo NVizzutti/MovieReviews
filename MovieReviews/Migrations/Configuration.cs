@@ -10,6 +10,7 @@ namespace MovieReviews.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "MovieReviews.Models.ApplicationDbContext";
         }
 
