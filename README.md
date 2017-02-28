@@ -6,4 +6,4 @@ Entity's code-first migration system is interesting, and makes setting up a data
 
 ##Razor
 
-##Queries in Visual C#
+##Queries in Visual C-Sharp
