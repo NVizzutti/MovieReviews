@@ -1,24 +1,23 @@
-﻿@model IEnumerable<MovieReviews.Models.Movie>
+﻿@model IEnumerable<MovieReviews.Models.Review>
 
 @{
-    ViewBag.Title = "All Films";
+    ViewBag.Title = "All Reviews";
 }
 
-<h2>Community Films</h2>
-
-<p>
-    @Html.ActionLink("Add Film", "Create")
-</p>
+<h2>Community Reviews</h2>
 <table class="table">
     <tr>
+        <th>
+            Film
+        </th>
+        <th>
+            User
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Director)
+            Review
         </th>
         <th></th>
     </tr>
@@ -26,18 +25,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Movie.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.year)
+            @Html.DisplayFor(modelItem => item.Body)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Director)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Review Page", "Details", new { id=item.Id })
         </td>
     </tr>
 }

@@ -27,14 +27,23 @@ namespace MovieReviews.Controllers
             {
                 var reviews = from r in db.Review where r.ApplicationUserId == null select r;
                 var withMovie = reviews.Include(r => r.Movie);
-                return View(reviews.ToList());
+                return View(withMovie.ToList());
             }
         }
         
         public ActionResult All()
         {
-            return View(db.Review.ToList());
+            var reviews = from r in db.Review select r;
+            var withMovie = reviews.Include(r => r.Movie);
+            return View(withMovie.ToList());
         } 
+
+
+        public ActionResult Create()
+        {
+            ViewBag.Movies = new SelectList(db.Movies, "Id", "Title");
+            return View();
+        }
 
         public ActionResult Details(int? id)
         {
@@ -42,19 +51,16 @@ namespace MovieReviews.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Review.Find(id);
-            if (review == null)
+            var reviews = from r in db.Review where r.Id == id select r;
+            var withMovie = reviews.Include(r => r.Movie).First();
+            ViewBag.Title = withMovie.Title;
+            ViewBag.Author = withMovie.User.UserName;
+            ViewBag.Movie = withMovie.Movie.Title;
+            if (withMovie == null)
             {
                 return HttpNotFound();
             }
-            return View(review);
-        }
-
-
-        public ActionResult Create()
-        {
-            ViewBag.Movies = new SelectList(db.Movies, "Id", "Title");
-            return View();
+            return View(withMovie);
         }
 
         [HttpPost]
