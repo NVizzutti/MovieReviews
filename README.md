@@ -1,9 +1,29 @@
 ##MovieReviews
-An ASP.NET MVC Web Application for sharing movie reviews, with Microsoft SQL Server. The application allows users to find and share under-rated movies, and review them as well. 
+An ASP.NET MVC Web Application for compiling favorite films, with search functionality and review postings for users. Microsoft SQL Server database for . The application allows users to find and share under-rated movies, and review them as well. 
 
 ##Code-First Migrations and Entity Framework
-Entity's code-first migration system is interesting, and makes setting up a database easier, but potentially more difficult to update. 
+I used Entity Framework's code-first migration system for the database-ORM, which helps persist data while models can be a but more fluid. Data annotations written in the model view help provide most of the information needed to generate a fairly accurate migration. 
 
-##Razor
+```C#
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [StringLength(40, ErrorMessage="Movie Title can only be 40 characters")]
+        [Display(Name = "Movie Title")]
+        [RegularExpression(@"^\d+{4}$", ErrorMessage = "Must be a valid year")]
+        public string Title { get; set; }
+        [Display(Name = "Release Year")]
+        public string year { get; set; }
+        public string Director { get; set; }
+        public ICollection<Review> Reviews { get; set; }
+ ```
+Entity also allows for easy `one-to-many` associatons and lazy loading through the use of virtual properties in the model. Additional database properties were written with Transact-SQL to assure proper handling of data modification and deletion among other things. 
+
+##Razor Markup
+`C# Razor` allowed me to handle some light logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for review purposes using razor was adequate. 
 
 ##Queries in Visual C-Sharp
+I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides and their accessibility. 
+
+##Frontend
+Speaking of the frontend, that is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. 
