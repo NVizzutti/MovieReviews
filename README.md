@@ -1,6 +1,8 @@
 ##MovieReviews
 An ASP.NET MVC Web Application for compiling favorite films, with search functionality and review postings for users. Microsoft SQL Server database for . The application allows users to find and share under-rated movies, and review them as well. 
 
+![home image](FS.png)
+
 ##Code-First Migrations and Entity Framework
 I used Entity Framework's code-first migration system for the database-ORM, which helps persist data while models can be a but more fluid. Data annotations written in the model view help provide most of the information needed to generate a fairly accurate migration. 
 
