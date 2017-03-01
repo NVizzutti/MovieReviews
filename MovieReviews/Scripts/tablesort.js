@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $('th').click(function() {
+    $('th').click(function () {
         let table = $(this).parents('table').eq(0);
         this.direction = !this.direction;
         let rows = table.find('tr:gt(0)').toArray().sort(comparator($(this).index()));
@@ -17,4 +17,6 @@ $(document).ready(() => {
         }
     }
     function getCellValue(row, index) { return $(row).children('td').eq(index).html() }
-})
+
+    $("select").click(() => $("h4").fadeTo("slow", 1));
+});
