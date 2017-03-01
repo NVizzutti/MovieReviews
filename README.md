@@ -20,10 +20,10 @@ I used Entity Framework's code-first migration system for the database-ORM, whic
 Entity also allows for easy `one-to-many` associatons and lazy loading through the use of virtual properties in the model. Additional database properties were written with Transact-SQL to assure proper handling of data modification and deletion among other things. 
 
 ##Razor Markup
-`C# Razor` allowed me to handle some light logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for review purposes using razor was adequate. 
+`C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. 
 
 ##Queries in Visual C-Sharp
-I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides and their accessibility. 
+I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides in the form of command objects, table adapters, and `LINQ Operations`. 
 
 ##Frontend
-Speaking of the frontend, that is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. 
+Speaking of the frontend, that is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. I just enjoy the limitless opportunities to integrate different technologies and find new development experiences all the time. 
