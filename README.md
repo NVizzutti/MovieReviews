@@ -23,7 +23,7 @@ Entity also allows for easy `one-to-many` associatons and lazy loading through t
 `C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. 
 
 ##Queries in Visual C-Sharp
-I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides in the form of command objects, table adapters, and `LINQ Operations`. 
+I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides in the form of `Command Objects`, `Table Adapters`, and `LINQ Operations`. 
 
 ##Frontend
 Speaking of the frontend, that is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. I just enjoy the limitless opportunities to integrate different technologies and find new development experiences all the time. 
