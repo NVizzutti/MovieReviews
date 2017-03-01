@@ -97,7 +97,7 @@ namespace MovieReviews.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ApplicationUserId,Title,Body")] Review review)
+        public ActionResult Edit([Bind(Include = "Id, ApplicationUserId, MovieId, Title, Body")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace MovieReviews.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", review.ApplicationUserId);
+           
             return View(review);
         }
 
