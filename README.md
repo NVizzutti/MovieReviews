@@ -1,7 +1,7 @@
 
 
 ##MovieReviews
-FilmSnubs is a an ASP.NET MVC Web Application for compiling favorite films, with search functionality and review postings for users, stored with Microsoft SQL Server. The application allows users to find and share under-rated movies, and review them as well. 
+FilmSnubs is a an ASP.NET MVC Web Application for compiling 'underrated' films, with search functionality and review postings for users stored with Microsoft SQL Server. The application allows users to find and share under-rated movies, and review them as well. 
 
 [Live](http://filmsnubs.apphb.com/home)
 
