@@ -25,6 +25,8 @@ I used Entity Framework's code-first migration system for the database-ORM, whic
  ```
 Entity also allows for easy `one-to-many` associatons and lazy loading through the use of virtual properties in the model. Additional database properties were written with Transact-SQL to assure proper handling of data modification and deletion among other things. 
 
+<img src="./Screenshot_20170301-163145.png" width="300px" height="auto"/>
+
 ##Razor Markup
 `C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. 
 
