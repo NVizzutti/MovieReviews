@@ -16,7 +16,9 @@ $(document).ready(() => {
             return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
         }
     }
-    function getCellValue(row, index) { return $(row).children('td').eq(index).html() }
+    function getCellValue(row, index) { 
+        return $(row).children('td').eq(index).html()
+    }
 
     $("select").click(() => $("h4").fadeTo("slow", 1));
 });
