@@ -31,7 +31,9 @@ Entity also allows for easy `one-to-many` associatons and lazy loading through t
 Due to the minimal frontend logic in this project, I chose to avoid making server requests to organize data. Instead I wrote a script to re-order the DOM elements within table. Clicking the title or director column head will order alphabetically and clicking the year will order numerically. By storing a variable to record the current sorted order, clicking the same column will reverse the order from ascending to descending or back again. 
 
 ##Razor Markup
-`C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. 
+`C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. Still, Razor makes it quite easy to display the associated reviews on the film model's page. 
+
+![screenshot](FilmSnub2.png)
 
 ##Queries in Visual C-Sharp
 I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides in the form of `Command Objects`, `Table Adapters`, and `LINQ Operations`. 
