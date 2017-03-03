@@ -35,6 +35,16 @@ Due to the minimal frontend logic in this project, I chose to avoid making serve
 
 ##Queries in Visual C-Sharp
 I enjoy writing SQL queries probably more than the average programmer, so I appreciate the several options Visual C# provides in the form of `Command Objects`, `Table Adapters`, and `LINQ Operations`. 
+```C#
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentId = User.Identity.GetUserId();
+                var userReviews = from r in db.Review where r.ApplicationUserId == currentId select r;
+                var withMovie = userReviews.Include(r => r.Movie);
+                return View(withMovie.ToList());
+            }
+  ```
+While the application in its current state does require very complicated queries, ASP.NET makes it quite easy to write queries that read like SQL in your source code, allowing for more complex logic when needed. 
 
 ##Frontend
 Speaking of the frontend, that is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. I just enjoy the limitless opportunities to integrate different technologies and find new development experiences all the time. 
