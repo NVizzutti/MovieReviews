@@ -27,6 +27,9 @@ Entity also allows for easy `one-to-many` associatons and lazy loading through t
 
 <img src="./Screenshot_20170301-163145.png" width="300px" height="auto"/>
 
+###JavaScript For Sorting Data
+Due to the minimal frontend logic in this project, I chose to avoid making server requests to organize data. Instead I wrote a script to re-order the DOM elements within table based on alphanumeric order. 
+
 ##Razor Markup
 `C# Razor` allowed me to handle some basic logic in my views. I would rather have integrated a light frontend framework to handle the data, but since this was a short project for my review purposes using razor was adequate. I would love to integrate `.NET` and `Reactjs.net` or `Angularjs` in a future project. 
 
