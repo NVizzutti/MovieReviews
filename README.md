@@ -45,7 +45,8 @@ I enjoy writing SQL queries probably more than the average programmer, so I appr
                 var withMovie = userReviews.Include(r => r.Movie);
                 return View(withMovie.ToList());
             }
-  ```
+ ```
+ 
 While the application in its current state does require very complicated queries, ASP.NET makes it quite easy to write queries that read like SQL in your source code, allowing for more complex logic when needed. 
 
 ####Search Function
@@ -63,7 +64,8 @@ While the application in its current state does require very complicated queries
             }
             return View(db.Movies.ToList());
         }
-        ```
+ ```
+ 
 
 ##Frontend
 The frontend is one thing I would like to revisit later for this project. As of now it is very minimal, with mostly HTML/CSS and a bit of jQuery to handle data re-organization. I just enjoy the limitless opportunities to integrate different technologies and find new development experiences all the time, and would love to utilize AngularJS or a similar library with ASP.NET.
