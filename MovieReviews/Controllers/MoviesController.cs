@@ -61,7 +61,7 @@ namespace MovieReviews.Controllers
 
             return View(movie);
         }
-
+        [Authorize(Users ="Nugget75@comcast.net")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -89,7 +89,7 @@ namespace MovieReviews.Controllers
             return View(movie);
         }
 
-
+        [Authorize(Users = "Nugget75@comcast.net")]
         public ActionResult Delete(int? id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -109,6 +109,7 @@ namespace MovieReviews.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

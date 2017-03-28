@@ -15,6 +15,7 @@ namespace MovieReviews.Models
         [Display(Name = "Movie Title")]
         public string Title { get; set; }
         [Display(Name = "Release Year")]
+        [RegularExpression(@"^\d{4}$", ErrorMessage = "Must be a valid year")]
         public string year { get; set; }
         public string Director { get; set; }
         public ICollection<Review> Reviews { get; set; }
